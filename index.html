@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizElite Score</title>
+    <style type="text/css" media="all">
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html, body, main{
+        height: 100%;
+        width: 100%;
+      }
+      body{
+        background-color: #2e2e2e;
+      }
+      main{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .rcb{
+        height: 50%;
+        width: 40%;
+        background: linear-gradient(135deg, #A02023, #FDB827);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        
+      }
+      .csk{
+        height: 50%;
+        width: 40%;
+        background: linear-gradient(135deg, #FCCA06, #00ADEF);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+      }
+      .buttons{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+      button{
+        width: 40%;
+      }
+      .rcb h1{
+        position: absolute;
+        top: 40%;
+        left: 25%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+      }
+      .csk h1{
+        position: absolute;
+        top: 40%;
+        left: 75%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+      }
+      .increment{
+        background-color: green;
+        color: #fff;
+        border: none;
+        transition: 0.3s;
+      }
+      .decrement{
+        background-color: red;
+        color: #fff;
+        border: none;
+        transition: 0.3s;
+      }
+      .increment:active{
+        transform: scale(0.95);
+        background-color: #01ad01;
+      }
+      .decrement:active{
+        transform: scale(0.95);
+        background-color: #ff4e4e;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="rcb">
+        <h1 class="rcbPoint"></h1>
+        <div class="buttons">
+          <button class="increment" id="rcbIncrement">+4</button>
+          <button class="decrement" id="rcbDecrement">-1</button>
+        </div>
+      </div>
+      <div class="csk">
+        <h1 class="cskPoint"></h1>
+        <div class="buttons">
+          <button class="increment" id="cskIncrement">+4</button>
+          <button class="decrement" id="cskDecrement">-1</button>
+        </div>
+      </div>
+    </main>
+    <script type="text/javascript" charset="utf-8">
+      let pointOfRCB = 0 
+      let pointOfCSK = 0
+      
+      const rcbPoint = document.querySelector('.rcbPoint')
+      const cskPoint = document.querySelector('.cskPoint')
+      const rcbIncrement = document.querySelector('#rcbIncrement')
+      const rcbDecrement = document.querySelector("#rcbDecrement")
+      const cskIncrement = document.querySelector("#cskIncrement")
+      const cskDecrement = document.querySelector("#cskDecrement")
+      
+      rcbPoint.textContent = pointOfRCB
+      cskPoint.textContent = pointOfCSK
+      
+      rcbIncrement.addEventListener('click', () => {
+        pointOfRCB += 4
+        rcbPoint.textContent = pointOfRCB
+      })
+      rcbDecrement.addEventListener('click', () => {
+        pointOfRCB -= 1
+        rcbPoint.textContent = pointOfRCB
+      })
+      cskIncrement.addEventListener('click', () => {
+        pointOfCSK += 4
+        cskPoint.textContent = pointOfCSK
+      })
+      cskDecrement.addEventListener('click', () => {
+        pointOfCSK -= 1
+        cskPoint.textContent = pointOfCSK
+      })
+    </script>
+  </body>
+</html>
